@@ -1,3 +1,13 @@
 a {
 	padding:10px;
 }
+
+.catButton{
+	border: none;
+	background-color: white;
+	text-transform:uppercase;
+}
+.active{
+	color:green;
+	text-decoration: underline; 
+}

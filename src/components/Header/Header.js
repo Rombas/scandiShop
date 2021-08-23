@@ -8,7 +8,7 @@ class Header extends React.Component {
 	render(){
 		return(
 			<div className='header'>
-				< HeaderCategories />
+				< HeaderCategories categoryClick={this.props.categoryClick} active={this.props.active} />
 				<img src={logo} alt='logo'/>
 				<span>
 					$✓

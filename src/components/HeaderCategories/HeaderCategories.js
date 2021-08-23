@@ -7,11 +7,18 @@ class HeaderCategories extends React.Component{
 	componentDidMount(){
 	}
 	render() {
-		console.log('Render')
 		const { categories = [] } = this.props.data;
-		console.log(categories);
 		return(
-			<span>{categories.map((category, i) => <a key={i}>{category.name}</a>)}</span>
+			<span> {
+				categories.map((category, i) => 
+					< button className={this.props.active === category.name ? 'catButton active': 'catButton'}
+					key = {i}
+					onClick = {() =>
+						this.props.categoryClick(category.name)
+					} >
+						{category.name} 
+					</button>)
+			}</span >
 		)
 	}
 }

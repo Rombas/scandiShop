@@ -2,28 +2,9 @@ import React from 'react';
 import './ProductCards.css'
 
 class ProductCards extends React.Component {
-	state = {
-		products:[]
-	}
-	
-	componentDidMount(){
-		const { data } = this.props;
-		data.fetchMore({
-			variables: {
-				"category": {
-					"title": "tech"
-				}
-			},
-			// updateQuery: (previousResult, {fetchMoreResult}) => fetchMoreResult
-		}).then((res) => {
-			this.setState(res.data.category)
-		})
-	}
 
 	render(){
-		console.log(this.state.products);
-		const { products = [] } = this.state;
-		console.log(products);
+		const { products = [] } = this.props.state;
 		return(
 			<div className='products'>
 				{products.map((product, i) => {

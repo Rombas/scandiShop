@@ -1,5 +1,5 @@
 import { graphql } from 'react-apollo';
-import ProductCards from './ProductCards';
+import MainShop from './MainShop';
 import { productCardsQuery } from './queries';
 
 const withGraphQL = graphql(productCardsQuery, {
@@ -8,4 +8,4 @@ const withGraphQL = graphql(productCardsQuery, {
     }),
   });
 
-  export default withGraphQL(ProductCards);
+  export default withGraphQL(MainShop);
