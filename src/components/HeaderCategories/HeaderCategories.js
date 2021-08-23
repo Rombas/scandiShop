@@ -1,16 +1,17 @@
 import { graphql } from 'react-apollo';
 import React from 'react';
 import { categoriesQuery } from './queries';
-import { compose } from 'recompose'
+import './HeaderCategories.css'
 
 class HeaderCategories extends React.Component{
 	componentDidMount(){
-		console.log(this.props.data.categories)
 	}
 	render() {
-		
+		console.log('Render')
+		const { categories = [] } = this.props.data;
+		console.log(categories);
 		return(
-			<div>Categories</div>
+			<span>{categories.map((category, i) => <a key={i}>{category.name}</a>)}</span>
 		)
 	}
 }
