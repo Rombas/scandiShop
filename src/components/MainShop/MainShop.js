@@ -1,6 +1,7 @@
 import React from 'react'
 import { categoryQuery } from '../../api/api';
 import Header from '../Header/Header'
+import PDP from '../PDP/PDP';
 import ProductCards from '../ProductCards/ProductCards'
 
 class MainShop extends React.Component{
@@ -10,11 +11,17 @@ class MainShop extends React.Component{
 			products: [],
 			active: 'tech',
 			isNavbar: false,
-			currentCurrency: 'USD'
+			currentCurrency: 'USD',
+			page: 'category',
+			selectedItem: undefined,
+			cart:{}
 		}
 		this.categoryClick = this.categoryClick.bind(this);
 		this.isNavbarChange = this.isNavbarChange.bind(this);
 		this.currencyChange = this.currencyChange.bind(this);
+		this.onItemClick = this.onItemClick.bind(this);
+		this.returnButtonClick = this.returnButtonClick.bind(this);
+		this.addToCart = this.addToCart.bind(this);
 	}
 	
 	componentDidMount() {
@@ -43,7 +50,18 @@ class MainShop extends React.Component{
 			});
 		}
 	}
-	
+	onItemClick(id){
+		this.setState({page: 'item', selectedItem: id});
+	}
+	returnButtonClick(){
+		this.setState({page: 'category'});
+	}
+	addToCart(){
+		this.setState({cart:{
+			
+		}})
+	}
+
 	render(){
 		return(
 			<div className="App">
@@ -54,9 +72,21 @@ class MainShop extends React.Component{
 					currentCurrency={this.state.currentCurrency}
 					isNavbarChange = {this.isNavbarChange}
 					currencyChange = {this.currencyChange}
+					returnButtonClick = {this.returnButtonClick}
 				/>
      			<h1>{this.state.name}</h1>
-     			< ProductCards state={this.state} />
+				{(this.state.page ==='category') &&
+     			< ProductCards 
+				 	state={this.state}
+					onItemClick = {this.onItemClick}	  
+				/>
+				}
+				{(this.state.page ==='item') &&
+     			<PDP 
+				 	product={this.state.products[this.state.selectedItem]}
+					currentCurrency={this.state.currentCurrency} 
+				/>
+				}
     </div>
 		)
 	}

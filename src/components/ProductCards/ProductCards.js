@@ -9,7 +9,7 @@ class ProductCards extends React.Component {
 			<div className='products'>
 				{products.map((product, i) => {
 					return(
-					<span className='productWrapper' key={i}>
+					<span className='productWrapper' key={i} onClick={() => {this.props.onItemClick(i)}}>
 						<div>
 							<img className='productImage' src={product.gallery[0]} alt={product.name}/>
 						</div>

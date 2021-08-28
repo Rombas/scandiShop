@@ -1,0 +1,14 @@
+.bar{
+	display: flex;
+	flex-direction: row;
+	text-align: center;
+}
+.bar > span{
+	width: 15%;
+	margin: 1%;
+	border: 2px solid black;
+}
+.active-attr{
+	background-color: black;
+	color: white;
+}

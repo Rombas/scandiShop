@@ -6,8 +6,19 @@ export const productCardsQuery = gql`
 			name
 			products {
 				name
+				brand
 				inStock
 				gallery
+				attributes {
+					id
+					name
+					type
+					items {
+						displayValue
+						value
+					}
+				}
+				description
 				prices {
 					currency
 					amount

@@ -1,0 +1,32 @@
+.pdp-wrapper{
+	display: flex;
+	flex-direction: row;
+	margin: 5%;
+}
+.pdp-wrapper > img{
+	width: 50%;
+	height: 50%;
+	margin: 5%;
+}
+.pdp-wrapper > div{
+	width: 10%;
+}
+.pdp-wrapper > span{
+	text-align: left;
+}
+.gallery-wrapper{
+	display: flex;
+	flex-direction: column;
+}
+.gallery-wrapper > img{
+	height: auto;
+}
+
+.add-button{
+	width: 100%;
+	align-items: center;
+	padding: 16px 32px;
+	background: #5ECE7B;
+	color: white;
+	border: none;
+}

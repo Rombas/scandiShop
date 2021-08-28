@@ -10,7 +10,7 @@ class Header extends React.Component {
 		return(
 			<div className='header'>
 				< HeaderCategories categoryClick={this.props.categoryClick} active={this.props.active} />
-				<img src={logo} alt='logo'/>
+				<img src={logo} alt='logo' onClick={() => this.props.returnButtonClick()}/>
 				<span>
 					<NavbarHOC 
 						isNavbar={this.props.isNavbar} 
